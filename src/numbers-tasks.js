@@ -22,6 +22,7 @@ function getRectangleArea(width, height) {
   return width * height;
 }
 getRectangleArea(5, 10);
+getRectangleArea(5, 5);
 
 /**
  * Returns a circumference of circle given by radius.
@@ -55,6 +56,8 @@ function getAverage(value1, value2) {
   return value1 / 2 + value2 / 2;
 }
 getAverage(5, 5);
+getAverage(10, 0);
+getAverage(-3, 3);
 
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -88,9 +91,10 @@ getDistanceBetweenPoints(0, 0, 0, 1);
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  return -b / a;
 }
+getLinearEquationRoot(5, 0, 0);
 
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
@@ -109,9 +113,14 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dots = x1 * x2 + y1 * y2;
+  const amountA = Math.sqrt(x1 * x1 + y1 * y1);
+  const amountB = Math.sqrt(x2 * x2 + y2 * y2);
+  const result = dots / (amountA * amountB);
+  return Math.acos(result);
 }
+getAngleBetweenVectors(1, 0, 0, 1);
 
 /**
  * Returns a last digit of a integer number.
@@ -126,10 +135,12 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return value % 10;
 }
-
+getLastDigit(100);
+getLastDigit(37);
+getLastDigit(0);
 /**
  * Returns a number by given string representation.
  *
@@ -141,9 +152,12 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return Number(value);
 }
+parseNumberFromString('100');
+parseNumberFromString('37');
+parseNumberFromString('-525.5');
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
