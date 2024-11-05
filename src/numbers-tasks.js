@@ -172,9 +172,12 @@ parseNumberFromString('-525.5');
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  return Math.sqrt(a * a + b * b + c * c);
 }
+getParallelepipedDiagonal(1, 1, 1);
+getParallelepipedDiagonal(3, 3, 3);
+getParallelepipedDiagonal(3, 2, 1);
 
 /**
  * Returns the number rounded to specified power of 10.
