@@ -304,9 +304,12 @@ getFibonacciNumber(10);
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  return (n * (n + 1)) / 2;
 }
+getSumToN(5);
+getSumToN(10);
+getSumToN(1);
 
 /**
  * Returns the sum of the digits of a given number.
@@ -319,9 +322,16 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  return String(num)
+    .split('')
+    .reduce((acc, dig) => {
+      return acc + Number(dig);
+    }, 0);
 }
+getSumOfDigits(123);
+getSumOfDigits(202);
+getSumOfDigits(5);
 
 /**
  * Returns true if the given number is a power of two, false otherwise.
@@ -334,9 +344,12 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  return num.toString(2).replace(/0/g, '').length === 1;
 }
+isPowerOfTwo(4);
+isPowerOfTwo(16);
+isPowerOfTwo(15);
 
 /**
  * Returns the sine of a number.
@@ -348,9 +361,11 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
+getSine(0);
+getSine(Math.PI / 2);
 
 /**
  * Returns a string representation of a number in a specified base (radix).
