@@ -196,9 +196,15 @@ getParallelepipedDiagonal(3, 2, 1);
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  const quotient = 10 ** pow;
+  return Math.round(num / quotient) * quotient;
 }
+roundToPowerOfTen(1234, 0);
+roundToPowerOfTen(1234, 1);
+roundToPowerOfTen(1234, 2);
+roundToPowerOfTen(1234, 3);
+roundToPowerOfTen(1234, 4);
 
 /**
  * Returns true is the number is prime; otherwise false.
@@ -217,9 +223,18 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n <= 1) return false;
+  if (n <= 3) return true;
+  if (n % 2 === 0 || n % 3 === 0) return false;
+  for (let i = 5; i * i <= n; i += 6) {
+    if (n % i === 0 || n % (i + 2) === 0) {
+      return false;
+    }
+  }
+  return true;
 }
+isPrime(5);
 
 /**
  * Tries to convert value to number and returns it if conversion was successful;
@@ -236,24 +251,22 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const number = Number(value);
+  return Number.isNaN(number) ? def : number;
 }
+toNumber(null, 0);
+toNumber('test', 0);
+toNumber('1', 0);
+toNumber('42', 0);
 
-/**
- * Returns the cube of the given number.
- *
- * @param {number} num
- * @return {number}
- *
- * @example:
- *   3  => 27
- *   -2 => -8
- *   0  => 0
- */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  const res = num ** 3;
+  return res;
 }
+getCube(3);
+getCube(-2);
+getCube(0);
 
 /**
  * Returns the Fibonacci number located at the index position.
@@ -268,9 +281,17 @@ function getCube(/* num */) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  if (index <= 1) {
+    return index;
+  }
+  return getFibonacciNumber(index - 1) + getFibonacciNumber(index - 2);
 }
+getFibonacciNumber(0);
+getFibonacciNumber(1);
+getFibonacciNumber(2);
+getFibonacciNumber(3);
+getFibonacciNumber(10);
 
 /**
  * Returns the sum of all numbers from 1 to n.
